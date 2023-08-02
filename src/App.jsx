@@ -7,15 +7,14 @@ function App() {
   const [imagenes, guardarImagenes] = useState([]);
   const [paginaActual, guardarPaginaActual] = useState(1);
   const [totalPaginas, guardarTotalPaginas] = useState(1);
-  const API_KEY = process.env.API_KEY;
 
   useEffect(() => {
     const consultarApi = async () => {
       if (busqueda === "") return;
-
       const imagenesPorPagina = 30;
-      const key =  API_KEY;
-      const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
+      const API = import.meta.env.VITE_REACT_API_KEY;
+      console.log("esta es", API);
+      const url = `https://pixabay.com/api/?key=${API}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
 
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
@@ -61,7 +60,6 @@ function App() {
           <Formulario guardarBusqueda={guardarBusqueda} />
         </div>
 
-
         {/*
         
         
@@ -74,8 +72,6 @@ function App() {
         
         */}
         <div className="d-flex flex-md-row  flex-column ">
-          
-
           {busqueda !== "" && imagenes.length !== 0 ? (
             <div className="row col-md-9 col-12 mx-auto justify-content-center mt-4  rounded-3 ">
               <ListadoImagenes imagenes={imagenes} />{" "}
