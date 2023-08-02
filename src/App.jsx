@@ -57,7 +57,7 @@ function App() {
     <>
       <div className="container p-3 mt-3 bg-dark justify-content-center  rounded-3 align-items-center">
         <div className="row text-center justify-content-center ">
-          <h2 className="text-white p-2  ">Buscar Imagenes</h2>
+          <h2 className="text-white p-2  ">Buscador Imagenes</h2>
           <Formulario guardarBusqueda={guardarBusqueda} />
         </div>
 
