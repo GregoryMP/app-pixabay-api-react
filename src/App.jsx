@@ -7,14 +7,15 @@ function App() {
   const [imagenes, guardarImagenes] = useState([]);
   const [paginaActual, guardarPaginaActual] = useState(1);
   const [totalPaginas, guardarTotalPaginas] = useState(1);
+  const API_KEY = process.env.API_KEY;
 
   useEffect(() => {
     const consultarApi = async () => {
       if (busqueda === "") return;
 
       const imagenesPorPagina = 30;
-      const API_KEY = process.env.API_KEY;
-      const url = `https://pixabay.com/api/?key=${API_KEY}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
+      const key =  API_KEY;
+      const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
 
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
