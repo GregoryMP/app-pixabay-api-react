@@ -13,8 +13,8 @@ function App() {
       if (busqueda === "") return;
 
       const imagenesPorPagina = 30;
-      const key = process.env.API_KEY;
-      const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
+      const API_KEY = process.env.API_KEY;
+      const url = `https://pixabay.com/api/?key=${API_KEY}&q=${busqueda}&per_page=${imagenesPorPagina}&page=${paginaActual}`;
 
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
